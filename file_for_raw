@@ -1,0 +1,5 @@
+repositories:
+  ros2/codigo_gustavo:
+    type: git
+    url: https://github.com/GustavoLLima/codigo_gustavo.git
+    version: master
