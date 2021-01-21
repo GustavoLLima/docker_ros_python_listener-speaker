@@ -119,14 +119,20 @@ rosdep install -i --from-path src --rosdistro foxy -y
 colcon build --packages-select codigo_gustavo
 ```
 
-Em outro terminal, execute:
+Em outro terminal, execute o setup:
 ```
 /bin/bash
 cd ~/my_ws
+source /opt/ros/foxy/setup.bash (varia conforme a distro)
 . install/setup.bash
 ```
 
-Por fim, use o pacote através de:
+Por fim, teste o pacote através do talker:
+```
+ros2 run codigo_gustavo listener
+```
+
+Ou então, crie um novo terminal, execute novamente os passos do setup e, por fim, execute o listener:
 ```
 ros2 run codigo_gustavo listener
 ```
