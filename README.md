@@ -34,6 +34,7 @@ services:
 volumes:
   teste:
 ```
+Observação: este arquivo utiliza um volume `teste`, que trata de uma pasta sincronizada entre o pc que executa o Docker e o container criado. A pasta `/teste/` está no mesmo nível dos arquivos `Dockerfile` e `docker-compose.yml`, e a pasta equivalente no container estará em `/root/teste`. Além disso, está sendo utilizada duas réplicas do serviço `listener`. Todos os parâmetros dessa descrição são opcionais, e podem ser removidos do `docker-compose.yml` sem alterar o funcionamento principal.
 
 Conteúdo do arquivo `Dockerfile`:
 ```
