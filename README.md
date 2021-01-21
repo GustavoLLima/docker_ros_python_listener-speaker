@@ -129,7 +129,7 @@ source /opt/ros/foxy/setup.bash (varia conforme a distro)
 
 Por fim, teste o pacote através do talker:
 ```
-ros2 run codigo_gustavo listener
+ros2 run codigo_gustavo talker
 ```
 
 Ou então, crie um novo terminal, execute novamente os passos do setup e, por fim, execute o listener:
