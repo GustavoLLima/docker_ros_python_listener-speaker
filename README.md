@@ -102,6 +102,7 @@ docker-compose up -d
 ###### Instalação como um pacote ros2 normal
 Crie um diretório, baixe o arquivo principal e faça importação pelo `vcs`
 ```
+source /opt/ros/foxy/setup.bash (varia conforme a distro)
 mkdir -p ~/my_ws/src
 cd ~/my_ws
 wget https://raw.githubusercontent.com/GustavoLLima/codigo_gustavo/master/file_for_raw
