@@ -124,7 +124,7 @@ Em outro terminal, execute:
 /bin/bash
 cd ~/my_ws
 . install/setup.bash
-``´
+```
 
 Por fim, use o pacote através de:
 ```
