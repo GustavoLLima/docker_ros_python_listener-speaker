@@ -93,7 +93,7 @@ Tendo criado os 2 arquivos no mesmo diretório, basta rodar:
 docker-compose up -d
 ```
 
-##Referências
+## Referências
 Código utilizado como base para a criação do listener/speaker em Python, em conjunto com a criação do pacote no ros2: https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber/
 
 Criação do ROS como um Docker Container: https://hub.docker.com/_/ros
