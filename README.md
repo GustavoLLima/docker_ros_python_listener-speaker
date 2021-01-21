@@ -1,9 +1,11 @@
 # codigo_gustavo
 Teste para criar um pacote ros2 com listener/speaker em Python.
 
+Os testes foram feitos utilizando o ros2 na distribuição `foxy`.
+
 Para funcionar, é necessários criar 2 arquivos, `Dockerfile` e `docker-compose.yml`.
 
-Conteúdo do arquivo `Dockerfile`:
+Conteúdo do arquivo `docker-compose.yml`:
 ```
 version: '3'
 
@@ -27,7 +29,7 @@ volumes:
   teste:
 ```
 
-Conteúdo do arquivo `docker-compose.yml`:
+Conteúdo do arquivo `Dockerfile`:
 ```
 ARG FROM_IMAGE=ros:foxy
 ARG OVERLAY_WS=/opt/ros/overlay_ws
