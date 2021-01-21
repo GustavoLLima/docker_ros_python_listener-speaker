@@ -5,6 +5,8 @@ Teste para criar um pacote ros2 com listener/speaker em Python.
 Os testes foram feitos utilizando o ros2 na distribuição `foxy`.
 
 ## Instalação
+
+###### Instalação com Docker
 É necessário ter o Docker instalado. O Docker está disponível para Windows, Linux e iOS. Disponível em: https://www.docker.com/products/docker-desktop
 
 Uma vez que o Docker esteja instalado, crie um diretório e dentro dele 2 arquivos, `Dockerfile` e `docker-compose.yml`.
@@ -95,6 +97,38 @@ RUN sed --in-place --expression \
 Tendo criado os 2 arquivos no mesmo diretório, abra um terminal/prompt de comando, navegue até o diretório, e execute:
 ```
 docker-compose up -d
+```
+###### Instalação como um pacote ros2 normal
+Crie um diretório, baixe o arquivo principal e faça importação pelo `vcs`
+```
+mkdir -p ~/my_ws/src
+cd ~/my_ws
+wget https://raw.githubusercontent.com/GustavoLLima/codigo_gustavo/master/file_for_raw
+
+vcs import src < file_for_raw
+```
+
+Indique o source (atenção, pode variar conforme a distribuição do ROS):
+```
+cd ~/my_ws
+source /opt/ros/foxy/setup.bash (varia conforme a distro)
+```
+Instale as dependências e monte o pacote
+```
+rosdep install -i --from-path src --rosdistro foxy -y
+colcon build --packages-select codigo_gustavo
+```
+
+Em outro terminal, execute:
+```
+/bin/bash
+cd ~/my_ws
+. install/setup.bash
+``´
+
+Por fim, use o pacote através de:
+```
+ros2 run codigo_gustavo listener
 ```
 
 ## Referências
