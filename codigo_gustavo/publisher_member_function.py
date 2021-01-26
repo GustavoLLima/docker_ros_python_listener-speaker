@@ -15,7 +15,12 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         msg = String()
-        msg.data = 'Hello World: %d' % self.i
+        if (random() > 0.5):
+          msg.data = '1'
+        else:
+          msg.data = '0'
+        
+        #msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
