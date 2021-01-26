@@ -16,7 +16,7 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         msg = String()
-        if (random() > 0.5):
+        if (random.randint(1,10) >= 5):
           msg.data = '1'
         else:
           msg.data = '0'
