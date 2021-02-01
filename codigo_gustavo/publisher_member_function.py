@@ -1,3 +1,12 @@
+import socket
+import sys
+import json
+from random import randrange
+from time import time, sleep
+
+from types import SimpleNamespace
+
+
 import rclpy
 import random
 from rclpy.node import Node
@@ -16,10 +25,11 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         msg = String()
-        if (random.randint(1,10) >= 5):
-          msg.data = '1'
-        else:
-          msg.data = '0'
+        # if (random.randint(1,10) >= 5):
+        #   msg.data = '1'
+        # else:
+        #   msg.data = '0'
+        msg.data = received_message
         
         #msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg)
@@ -28,21 +38,98 @@ class MinimalPublisher(Node):
 
 
 def main(args=None):
-    rclpy.init(args=args)
 
-    minimal_publisher = MinimalPublisher()
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("talker", 9999))
+    s.listen(2)
 
-    rclpy.spin(minimal_publisher)
+    while True:
+        # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # s.bind(("python_server", 9999))
+        # s.listen(2)
+        conn, addr = s.accept()
+        print("Conexão estabelecida com %s" % str(addr))
+        received_message = bytes.decode(conn.recv(1024))
+        print ("Mensagem recebida:")
+        print(received_message)
 
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
-    minimal_publisher.destroy_node()
-    rclpy.shutdown()
+        #x = json.loads(received_message, object_hook=lambda d: SimpleNamespace(**d))
+        #print(x.id, x.action)
+
+        # m = {"id": int(received_message), "action": "stop"} # a real dict.
+        # command = json.dumps(m)
+
+        #command = "dsadsasdasadsda"
+        #print ("Enviando para o cliente:"+command)
+
+        #conn.sendall(command.encode('ascii'))
+
+
+
+        #Código ROS
+        rclpy.init(args=args)
+
+        minimal_publisher = MinimalPublisher()
+
+        rclpy.spin(minimal_publisher)
+
+        # Destroy the node explicitly
+        # (optional - otherwise it will be done automatically
+        # when the garbage collector destroys the node object)
+        minimal_publisher.destroy_node()
+        rclpy.shutdown()
 
 
 if __name__ == '__main__':
     main()
+
+
+
+# import rclpy
+# import random
+# from rclpy.node import Node
+
+# from std_msgs.msg import String
+
+
+# class MinimalPublisher(Node):
+
+#     def __init__(self):
+#         super().__init__('minimal_publisher')
+#         self.publisher_ = self.create_publisher(String, 'topic', 10)
+#         timer_period = 0.5  # seconds
+#         self.timer = self.create_timer(timer_period, self.timer_callback)
+#         self.i = 0
+
+#     def timer_callback(self):
+#         msg = String()
+#         if (random.randint(1,10) >= 5):
+#           msg.data = '1'
+#         else:
+#           msg.data = '0'
+        
+#         #msg.data = 'Hello World: %d' % self.i
+#         self.publisher_.publish(msg)
+#         self.get_logger().info('Publishing: "%s"' % msg.data)
+#         self.i += 1
+
+
+# def main(args=None):
+#     rclpy.init(args=args)
+
+#     minimal_publisher = MinimalPublisher()
+
+#     rclpy.spin(minimal_publisher)
+
+#     # Destroy the node explicitly
+#     # (optional - otherwise it will be done automatically
+#     # when the garbage collector destroys the node object)
+#     minimal_publisher.destroy_node()
+#     rclpy.shutdown()
+
+
+# if __name__ == '__main__':
+#     main()
 
 # # Copyright 2016 Open Source Robotics Foundation, Inc.
 # #
