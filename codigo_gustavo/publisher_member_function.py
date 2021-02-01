@@ -55,7 +55,7 @@ def main(args=None):
         print ("Mensagem recebida:")
         print(received_message)
         global msg_to_send
-        msg_to_send = received_message
+        msg_to_send = "received_message"
 
         #x = json.loads(received_message, object_hook=lambda d: SimpleNamespace(**d))
         #print(x.id, x.action)
