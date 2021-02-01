@@ -25,8 +25,8 @@ class MinimalSubscriber(Node):
         # else:
         #     self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
         self.get_logger().info('I heard: "%s"' % msg.data)
-        x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
-        print(x.id, x.action)
+        # x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
+        # print(x.id, x.action)
 
 
 def main(args=None):
