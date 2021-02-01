@@ -24,7 +24,7 @@ class MinimalSubscriber(Node):
         #     self.get_logger().info('Andar, pois ouvi: "%s"' % msg.data)
         # else:
         #     self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
-        #self.get_logger().info('I heard: "%s"' % msg.data)
+        self.get_logger().info('I heard: "%s"' % msg.data)
 
 
 def main(args=None):
