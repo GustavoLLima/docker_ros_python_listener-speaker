@@ -26,21 +26,6 @@ class MinimalPublisher(Node):
         self.i = 0
 
     def timer_callback(self):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind(("talker", 9999))
-        s.listen(2)
-
-        while True:
-            # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            # s.bind(("python_server", 9999))
-            # s.listen(2)
-            conn, addr = s.accept()
-            print("Conexão estabelecida com %s" % str(addr))
-            received_message = bytes.decode(conn.recv(1024))
-            print ("Mensagem recebida:")
-            print(received_message)
-            global msg_to_send
-            msg_to_send = received_message
         msg = String()
         # if (random.randint(1,10) >= 5):
         #   msg.data = '1'
@@ -56,21 +41,21 @@ class MinimalPublisher(Node):
 
 def main(args=None):
 
-    # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # s.bind(("talker", 9999))
-    # s.listen(2)
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(("talker", 9999))
+    s.listen(2)
 
-    # while True:
-    #     # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #     # s.bind(("python_server", 9999))
-    #     # s.listen(2)
-    #     conn, addr = s.accept()
-    #     print("Conexão estabelecida com %s" % str(addr))
-    #     received_message = bytes.decode(conn.recv(1024))
-    #     print ("Mensagem recebida:")
-    #     print(received_message)
-    #     global msg_to_send
-    #     msg_to_send = received_message
+    while True:
+        # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # s.bind(("python_server", 9999))
+        # s.listen(2)
+        conn, addr = s.accept()
+        print("Conexão estabelecida com %s" % str(addr))
+        received_message = bytes.decode(conn.recv(1024))
+        print ("Mensagem recebida:")
+        print(received_message)
+        global msg_to_send
+        msg_to_send = received_message
 
         #x = json.loads(received_message, object_hook=lambda d: SimpleNamespace(**d))
         #print(x.id, x.action)
