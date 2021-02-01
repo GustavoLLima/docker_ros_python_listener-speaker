@@ -13,6 +13,8 @@ from rclpy.node import Node
 
 from std_msgs.msg import String
 
+msg_to_send = ""
+
 
 class MinimalPublisher(Node):
 
@@ -29,7 +31,7 @@ class MinimalPublisher(Node):
         #   msg.data = '1'
         # else:
         #   msg.data = '0'
-        msg.data = received_message
+        msg.data = msg_to_send
         
         #msg.data = 'Hello World: %d' % self.i
         self.publisher_.publish(msg)
@@ -52,6 +54,8 @@ def main(args=None):
         received_message = bytes.decode(conn.recv(1024))
         print ("Mensagem recebida:")
         print(received_message)
+        global msg_to_send
+        msg_to_send = received_message
 
         #x = json.loads(received_message, object_hook=lambda d: SimpleNamespace(**d))
         #print(x.id, x.action)
