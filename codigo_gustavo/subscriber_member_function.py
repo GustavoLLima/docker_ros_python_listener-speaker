@@ -20,17 +20,14 @@ class MinimalSubscriber(Node):
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
-        # if(msg.data == "1"):
-        #     self.get_logger().info('Andar, pois ouvi: "%s"' % msg.data)
-        # else:
-        #     self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
-        self.get_logger().info('I heard: "%s"' % msg.data)
-        # x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
-        # print(x.id, x.action)
+        if(msg.data == "1"):
+            self.get_logger().info('Andar, pois ouvi: "%s"' % msg.data)
+        else:
+            self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
+        #self.get_logger().info('I heard: "%s"' % msg.data)
 
 
 def main(args=None):
-    print ("Main Subscriber")
     rclpy.init(args=args)
 
     minimal_subscriber = MinimalSubscriber()
