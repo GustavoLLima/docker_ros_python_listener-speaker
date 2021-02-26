@@ -22,7 +22,10 @@ setup(
         'console_scripts': [
             'my_node = codigo_gustavo.my_node:main',
             'talker = codigo_gustavo.publisher_member_function:main',
+            'original_talker = codigo_gustavo.original_publisher_member_function:main',
             'listener = codigo_gustavo.subscriber_member_function:main',
+            'original_listener = codigo_gustavo.original_subscriber_member_function:main',
+            
         ],
     },
 )
