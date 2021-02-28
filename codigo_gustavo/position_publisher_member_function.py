@@ -42,10 +42,10 @@ class MinimalPublisher(Node):
         #     self.timer_callback()
 
     def timer_callback(self):
-        msg = String()
-        msg.data = msg_to_send
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
+        # msg = String()
+        # msg.data = msg_to_send
+        # self.publisher_.publish(msg)
+        # self.get_logger().info('Publishing: "%s"' % msg.data)
 
         test_string = my_hostname
         my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
@@ -55,6 +55,11 @@ class MinimalPublisher(Node):
 
         m = {"id": my_id, "position": position} # a real dict.
         command = json.dumps(m)
+
+        msg = String()
+        msg.data = command
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
 
 
 def main(args=None):
