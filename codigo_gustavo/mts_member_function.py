@@ -28,10 +28,9 @@ class MinimalSubscriber(Node):
         #     self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
         self.get_logger().info('I heard: "%s"' % msg.data)
         x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
-        print (x)
-        print(x.id, x.action)
+        print(x.id, x.position)
 
-        m = {"id": x.id, "action": action}
+        m = {"id": x.id, "position": position}
         command = json.dumps(m)
         print ("Enviando para o modelo:"+command)
 
