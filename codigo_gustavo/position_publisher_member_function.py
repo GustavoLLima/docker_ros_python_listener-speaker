@@ -49,7 +49,7 @@ class MinimalPublisher(Node):
 
         test_string = my_hostname
         my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
-        print (str(my_id))
+        # print (str(my_id))
 
         position = random.randint(0,100)
 
