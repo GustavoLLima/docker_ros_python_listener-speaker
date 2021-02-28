@@ -30,7 +30,7 @@ class MinimalSubscriber(Node):
         x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
         print(x.id, x.position)
 
-        m = {"id": x.id, "position": position}
+        m = {"id": x.id, "position": x.position}
         command = json.dumps(m)
         print ("Enviando para o modelo:"+command)
 
