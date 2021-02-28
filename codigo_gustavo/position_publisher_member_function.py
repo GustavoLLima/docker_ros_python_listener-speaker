@@ -23,8 +23,14 @@ class MinimalPublisher(Node):
     def __init__(self):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(String, 'topic', 10)
-        while True:
+
+        total = 10
+        for i in range (total):
             self.timer_callback()
+
+        # para enviar mensagens sem parar
+        # while True:
+        #     self.timer_callback()
 
 
         # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
