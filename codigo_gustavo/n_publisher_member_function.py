@@ -15,7 +15,7 @@ def main(args=None):
 
   #msg = String()
   #senden = true
-  i = 3
+  i = 0
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
     if (i > 3):
