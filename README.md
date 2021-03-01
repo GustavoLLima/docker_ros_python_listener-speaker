@@ -140,6 +140,6 @@ ros2 run codigo_gustavo listener
 ```
 
 ## Referências
-Código utilizado como base para a criação do listener/speaker em Python, em conjunto com a criação do pacote no ros2: https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber/
+Código utilizado como base para a criação do listener/speaker em Python, em conjunto com a criação do pacote no ros2: https://docs.ros.org/en/ros2_documentation/foxy/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber.html
 
 Criação do ROS como um Docker Container: https://hub.docker.com/_/ros
