@@ -28,6 +28,7 @@ setup(
             'original_talker = codigo_gustavo.original_publisher_member_function:main',
             'position_talker = codigo_gustavo.position_publisher_member_function:main',
             'listener = codigo_gustavo.subscriber_member_function:main',
+            'final_listener = codigo_gustavo.final_subscriber_member_function:main',
             'original_listener = codigo_gustavo.original_subscriber_member_function:main',
         ],
     },
