@@ -6,6 +6,9 @@ from std_msgs.msg import String
 
 import json
 
+import os
+my_hostname = (os.environ['my_hostname'])
+
 def main(args=None):
   rclpy.init(args=args)
 
@@ -19,7 +22,13 @@ def main(args=None):
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
     if (i < 3):
-        m = {"id": 1, "position": 10}
+        test_string = my_hostname
+        my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
+        # print (str(my_id))
+
+        position = random.randint(0,100)
+
+        m = {"id": my_id, "position": position} # a real dict.
         command = json.dumps(m)
 
         msg = String()
