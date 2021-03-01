@@ -24,9 +24,9 @@ class MinimalPublisher(Node):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(String, 'topic', 10)
 
-        total = 2
-        for i in range (total):
-            self.timer_callback()
+#         total = 2
+#         for i in range (total):
+#             self.timer_callback()
 
         self.timer_callback()
 
@@ -76,7 +76,10 @@ def main(args=None):
 
     minimal_publisher = MinimalPublisher()
 
-    rclpy.spin(minimal_publisher)
+    #rclpy.spin(minimal_publisher)
+    total = 2
+    for i in range (total):
+        rclpy.spin(minimal_publisher)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
