@@ -18,7 +18,7 @@ def main(args=None):
   i = 0
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
-    if (i > 3):
+    if (i < 3):
         m = {"id": 1, "position": 10}
         command = json.dumps(m)
 
