@@ -23,7 +23,7 @@ def main(args=None):
   i = 0
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
-    if (i < 3):
+    if (i < 1):
         test_string = my_hostname
         my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
         # print (str(my_id))
