@@ -28,11 +28,11 @@ class MinimalPublisher(Node):
 #         for i in range (total):
 #             self.timer_callback()
 
-        self.timer_callback()
+        #self.timer_callback()
 
-        # para enviar mensagens sem parar
-        # while True:
-        #     self.timer_callback()
+        para enviar mensagens sem parar
+        while True:
+            self.timer_callback()
 
 
         # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -76,10 +76,10 @@ def main(args=None):
 
     minimal_publisher = MinimalPublisher()
 
-    #rclpy.spin(minimal_publisher)
-    total = 2
-    for i in range (total):
-        rclpy.spin(minimal_publisher)
+    rclpy.spin(minimal_publisher)
+#     total = 2
+#     for i in range (total):
+#         rclpy.spin(minimal_publisher)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
