@@ -24,11 +24,11 @@ def main(args=None):
         i += 1
     sleep(0.5)  # seconds
 
-# Destroy the node explicitly
-# (optional - otherwise it will be done automatically
-# when the garbage collector destroys the node object)
-#node.destroy_node()
-rclpy.shutdown()
+  # Destroy the node explicitly
+  # (optional - otherwise it will be done automatically
+  # when the garbage collector destroys the node object)
+  node.destroy_node()
+  rclpy.shutdown()
 
 
 if __name__ == '__main__':
