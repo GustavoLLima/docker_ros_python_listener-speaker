@@ -30,7 +30,7 @@ class MinimalPublisher(Node):
 
         #self.timer_callback()
 
-        para enviar mensagens sem parar
+        #para enviar mensagens sem parar
         while True:
             self.timer_callback()
 
