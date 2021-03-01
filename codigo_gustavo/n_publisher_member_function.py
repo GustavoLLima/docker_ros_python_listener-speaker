@@ -13,14 +13,19 @@ def main(args=None):
 
   publisher = node.create_publisher(String, 'topic', 10)
 
-  msg = String()
+  #msg = String()
   #senden = true
   i = 3
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
     if (i > 3):
         m = {"id": 1, "position": 10}
-        msg.data = json.dumps(m)
+        command = json.dumps(m)
+
+        msg = String()
+        msg.data = command
+
+        print (msg.data)
         node.get_logger().info('Publishing: "%s"' % msg.data)
         publisher.publish(msg)
         i += 1
