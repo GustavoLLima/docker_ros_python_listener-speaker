@@ -18,7 +18,7 @@ class MinimalSubscriber(Node):
 
         self.subscription = self.create_subscription(
             String,
-            'output_talk'+str(my_id),
+            'final_output_agent'+str(my_id),
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
