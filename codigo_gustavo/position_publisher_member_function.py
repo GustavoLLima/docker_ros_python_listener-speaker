@@ -24,7 +24,7 @@ class MinimalPublisher(Node):
         super().__init__('minimal_publisher')
         self.publisher_ = self.create_publisher(String, 'topic', 10)
 
-        total = 10
+        total = 1
         for i in range (total):
             self.timer_callback()
 
