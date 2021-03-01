@@ -18,10 +18,10 @@ def main(args=None):
   i = 3
   while rclpy.ok():
     #msg.data = 'Hello World: %d' % i
-    #node.get_logger().info('Publishing: "%s"' % msg.data)
     if (i > 3):
         m = {"id": 1, "position": 10}
         msg.data = json.dumps(m)
+        node.get_logger().info('Publishing: "%s"' % msg.data)
         publisher.publish(msg)
         i += 1
     sleep(0.5)  # seconds
