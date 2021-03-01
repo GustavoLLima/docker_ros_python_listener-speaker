@@ -28,11 +28,11 @@ class MinimalPublisher(Node):
 #         for i in range (total):
 #             self.timer_callback()
 
-        #self.timer_callback()
+        self.timer_callback()
 
-        #para enviar mensagens sem parar
-        while True:
-            self.timer_callback()
+#         #para enviar mensagens sem parar
+#         while True:
+#             self.timer_callback()
 
 
         # s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
