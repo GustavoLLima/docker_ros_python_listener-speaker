@@ -47,7 +47,7 @@ class MinimalPublisher(Node):
 
             # test_string = my_hostname
             # my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
-            topic = "final_output_agent"+x
+            topic = "final_output_agent"+x.id
             self.publisher_ = self.create_publisher(String, topic, 10)
 
 
