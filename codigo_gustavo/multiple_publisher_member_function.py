@@ -39,16 +39,34 @@ class MinimalPublisher(Node):
             received_message = bytes.decode(conn.recv(1024))
             print ("Mensagem recebida:")
             print(received_message)
-            global msg_to_send
-            msg_to_send = received_message
 
             x = json.loads(received_message, object_hook=lambda d: SimpleNamespace(**d))
-            #print(x.id, x.position)
+            print(x)
 
-            # test_string = my_hostname
-            # my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
-            topic = "final_output_agent"+x.id
-            self.publisher_ = self.create_publisher(String, topic, 10)
+            print ("------------")
+            #received_message = ["{\"id\": 1, \"position\": 9}", "{\"id\": 2, \"position\": 60}"]
+            for msg in x:
+                print("message:")
+                print(msg)
+                #message = str(message).replace('"',"'")
+                #x = json.loads(message, object_hook=lambda d: SimpleNamespace(**d))
+                print ("msg.id:")
+                print (msg.id)
+                print ("msg.action")
+                print (msg.action)
+                m = {'id': msg.id, 'action': msg.action}
+                #conf_parameters.append(["agent", int(msg.id), int(msg.action)])
+
+                global msg_to_send
+                msg_to_send = m
+
+                #x = json.loads(m, object_hook=lambda d: SimpleNamespace(**d))
+                #print(x.id, x.position)
+
+                # test_string = my_hostname
+                # my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
+                topic = "final_output_agent"+msg.id
+                self.publisher_ = self.create_publisher(String, topic, 10)
 
 
             self.timer_callback()
