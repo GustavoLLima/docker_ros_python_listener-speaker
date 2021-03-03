@@ -12,13 +12,13 @@ from types import SimpleNamespace
 import os
 
 queue_size = os.environ['queue_size']
+queue = []
 
 
 class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
-        self.queue = []
         self.subscription = self.create_subscription(
             String,
             'topic',
@@ -37,11 +37,12 @@ class MinimalSubscriber(Node):
 
         # m = {"id": x.id, "position": x.position}
         # command = json.dumps(m)
-        self.queue.append(msg.data)
+        global queue
+        queue.append(msg.data)
         print ("Comando adicionado na fila:"+msg.data)
         #print ("Enviando para o modelo:"+command)
 
-        if (leng(self.queue) == queue_size):
+        if (leng(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
             while len(teste) > 0:
                 elemento = teste.pop(0)
@@ -57,7 +58,7 @@ class MinimalSubscriber(Node):
                 # print(socket.gethostname())
                 sock.connect(('modelo', 9999))
                 sock.sendall(command.encode())
-            self.queue = []
+            queue = []
 
 
 def main(args=None):
