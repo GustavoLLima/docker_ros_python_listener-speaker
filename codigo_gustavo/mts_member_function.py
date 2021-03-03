@@ -36,10 +36,10 @@ class MinimalSubscriber(Node):
         # #print(x.id, x.position)
 
         # m = {"id": x.id, "position": x.position}
-        # command = json.dumps(m)
+        command = json.dumps(msg.data)
         global queue
-        queue.append(msg.data)
-        print ("Comando adicionado na fila:"+msg.data)
+        queue.append(command)
+        print ("Comando adicionado na fila:"+command)
         print (queue)
         #print ("Enviando para o modelo:"+command)
 
