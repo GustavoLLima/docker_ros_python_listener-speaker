@@ -11,7 +11,7 @@ from types import SimpleNamespace
 
 import os
 
-queue_size = os.environ['queue_size']
+queue_size = int(os.environ['queue_size'])
 queue = []
 
 
@@ -46,8 +46,8 @@ class MinimalSubscriber(Node):
         print(len(queue) == queue_size)
         if (len(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
-            while len(teste) > 0:
-                elemento = teste.pop(0)
+            while len(queue) > 0:
+                elemento = queue.pop(0)
                 print(elemento)
                 x = json.loads(msg.elemento, object_hook=lambda d: SimpleNamespace(**d))
                 #print(x.id, x.position)
