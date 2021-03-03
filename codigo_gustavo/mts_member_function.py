@@ -42,6 +42,7 @@ class MinimalSubscriber(Node):
         print ("Comando adicionado na fila:"+msg.data)
         #print ("Enviando para o modelo:"+command)
 
+        print("len queue: "+str(len(queue))+" queue_size: "+str(queue_size))
         if (len(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
             while len(teste) > 0:
