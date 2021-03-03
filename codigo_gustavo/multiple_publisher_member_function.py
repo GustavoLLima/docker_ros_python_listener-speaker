@@ -46,6 +46,7 @@ class MinimalSubscriber(Node):
         print(len(queue) == queue_size)
         if (len(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
+            print (queue)
 
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             #m = {"id": x.id, "position": x.position}
