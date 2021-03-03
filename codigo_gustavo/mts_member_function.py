@@ -49,7 +49,7 @@ class MinimalSubscriber(Node):
             while len(queue) > 0:
                 elemento = queue.pop(0)
                 print(elemento)
-                x = json.loads(msg.elemento, object_hook=lambda d: SimpleNamespace(**d))
+                x = json.loads(elemento, object_hook=lambda d: SimpleNamespace(**d))
                 #print(x.id, x.position)
 
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
