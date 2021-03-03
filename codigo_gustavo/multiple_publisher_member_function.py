@@ -73,6 +73,8 @@ class MinimalPublisher(Node):
                 #   msg.data = '1'
                 # else:
                 #   msg.data = '0'
+                print("msg_to_send:")
+                print(msg_to_send)
                 msg.data = msg_to_send
                 
                 #msg.data = 'Hello World: %d' % self.i
