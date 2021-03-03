@@ -40,7 +40,7 @@ class MinimalSubscriber(Node):
         global queue
         queue.append(msg.data)
         print ("Comando adicionado na fila:"+msg.data)
-        print ("Fila após a adição: "+queue)
+        print (queue)
         #print ("Enviando para o modelo:"+command)
 
         print("len queue: "+str(len(queue))+" queue_size: "+str(queue_size))
