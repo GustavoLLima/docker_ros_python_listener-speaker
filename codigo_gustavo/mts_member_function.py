@@ -9,6 +9,8 @@ from std_msgs.msg import String
 
 from types import SimpleNamespace
 
+import os
+
 queue_size = os.environ['queue_size']
 
 
