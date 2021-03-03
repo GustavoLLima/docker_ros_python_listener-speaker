@@ -32,14 +32,14 @@ class MinimalSubscriber(Node):
         # else:
         #     self.get_logger().info('Parar, pois ouvi: "%s"' % msg.data)
         self.get_logger().info('I heard: "%s"' % msg.data)
-        # x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
-        # #print(x.id, x.position)
+        x = json.loads(msg.data, object_hook=lambda d: SimpleNamespace(**d))
+        #print(x.id, x.position)
 
-        # m = {"id": x.id, "position": x.position}
-        command = json.dumps(msg.data)
+        m = {"id": x.id, "position": x.position}
+        #command = json.dumps(msg.data)
         global queue
-        queue.append(command)
-        print ("Comando adicionado na fila:"+command)
+        queue.append(x)
+        print ("Comando adicionado na fila:"+x)
         print (queue)
         #print ("Enviando para o modelo:"+command)
 
