@@ -57,6 +57,7 @@ class MinimalSubscriber(Node):
                 # print(socket.gethostname())
                 sock.connect(('modelo', 9999))
                 sock.sendall(command.encode())
+            self.queue = []
 
 
 def main(args=None):
