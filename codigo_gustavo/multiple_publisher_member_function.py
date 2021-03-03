@@ -67,25 +67,36 @@ class MinimalPublisher(Node):
                 # my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
                 topic = "final_output_agent"+msg.id
                 self.publisher_ = self.create_publisher(String, topic, 10)
+                # self.timer_callback()
+                msg = String()
+                # if (random.randint(1,10) >= 5):
+                #   msg.data = '1'
+                # else:
+                #   msg.data = '0'
+                msg.data = msg_to_send
+                
+                #msg.data = 'Hello World: %d' % self.i
+                self.publisher_.publish(msg)
+                self.get_logger().info('Publishing: "%s"' % msg.data)
 
 
-            self.timer_callback()
+            # self.timer_callback()
 
 
         # self.timer = self.create_timer(timer_period, self.timer_callback)
         # self.i = 0
 
     def timer_callback(self):
-        msg = String()
-        # if (random.randint(1,10) >= 5):
-        #   msg.data = '1'
-        # else:
-        #   msg.data = '0'
-        msg.data = msg_to_send
+        # msg = String()
+        # # if (random.randint(1,10) >= 5):
+        # #   msg.data = '1'
+        # # else:
+        # #   msg.data = '0'
+        # msg.data = msg_to_send
         
-        #msg.data = 'Hello World: %d' % self.i
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
+        # #msg.data = 'Hello World: %d' % self.i
+        # self.publisher_.publish(msg)
+        # self.get_logger().info('Publishing: "%s"' % msg.data)
         # self.i += 1
 
 
