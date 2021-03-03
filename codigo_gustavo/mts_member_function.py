@@ -39,12 +39,14 @@ class MinimalSubscriber(Node):
         #command = json.dumps(msg.data)
         global queue
         queue.append(m)
-        print ("Comando adicionado na fila:"+m)
+        print ("Comando adicionado na fila:")
+        print (m)
+        print ("Estado atual da fila:")
         print (queue)
         #print ("Enviando para o modelo:"+command)
 
         print("len queue: "+str(len(queue))+" queue_size: "+str(queue_size))
-        print(len(queue) == queue_size)
+        #print(len(queue) == queue_size)
         if (len(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
             print (queue)
