@@ -46,21 +46,50 @@ class MinimalSubscriber(Node):
         print(len(queue) == queue_size)
         if (len(queue) == queue_size):
             print ("Fila atingiu o tamanho para envio")
-            while len(queue) > 0:
-                elemento = queue.pop(0)
-                print(elemento)
-                x = json.loads(elemento, object_hook=lambda d: SimpleNamespace(**d))
-                #print(x.id, x.position)
 
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                m = {"id": x.id, "position": x.position}
-                command = json.dumps(m)
-                print("Enviando para o modelo:"+command)
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #m = {"id": x.id, "position": x.position}
+            command = json.dumps(queue)
+            print("Enviando para o modelo:"+command)
+            
+            # print(socket.gethostname())
+            sock.connect(('modelo', 9999))
+            sock.sendall(command.encode())
+            # while len(queue) > 0:
+            #     elemento = queue.pop(0)
+            #     print(elemento)
+            #     x = json.loads(elemento, object_hook=lambda d: SimpleNamespace(**d))
+            #     #print(x.id, x.position)
+
+            #     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #     m = {"id": x.id, "position": x.position}
+            #     command = json.dumps(m)
+            #     print("Enviando para o modelo:"+command)
                 
-                # print(socket.gethostname())
-                sock.connect(('modelo', 9999))
-                sock.sendall(command.encode())
+            #     # print(socket.gethostname())
+            #     sock.connect(('modelo', 9999))
+            #     sock.sendall(command.encode())
             queue = []
+
+        # print("len queue: "+str(len(queue))+" queue_size: "+str(queue_size))
+        # print(len(queue) == queue_size)
+        # if (len(queue) == queue_size):
+        #     print ("Fila atingiu o tamanho para envio")
+        #     while len(queue) > 0:
+        #         elemento = queue.pop(0)
+        #         print(elemento)
+        #         x = json.loads(elemento, object_hook=lambda d: SimpleNamespace(**d))
+        #         #print(x.id, x.position)
+
+        #         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #         m = {"id": x.id, "position": x.position}
+        #         command = json.dumps(m)
+        #         print("Enviando para o modelo:"+command)
+                
+        #         # print(socket.gethostname())
+        #         sock.connect(('modelo', 9999))
+        #         sock.sendall(command.encode())
+        #     queue = []
 
 
 def main(args=None):
