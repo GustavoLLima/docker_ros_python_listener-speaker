@@ -18,13 +18,13 @@ class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
+        self.queue = []
         self.subscription = self.create_subscription(
             String,
             'topic',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
-        self.queue = []
 
     def listener_callback(self, msg):
         # if(msg.data == "1"):
