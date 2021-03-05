@@ -12,8 +12,8 @@ from types import SimpleNamespace
 import os
 
 queue_size = int(os.environ['queue_size'])
-initial_topic = int(os.environ['initial_topic'])
-modelo = int(os.environ['modelo'])
+initial_topic = os.environ['initial_topic']
+modelo = os.environ['modelo']
 queue = []
 
 
