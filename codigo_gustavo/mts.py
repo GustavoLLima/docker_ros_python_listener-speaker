@@ -38,7 +38,7 @@ class MinimalSubscriber(Node):
         x = json.loads(msg.data)
         #print(x.id, x.position)
 
-        m = {"id": x.id, "position": x.position}
+        #m = {"id": x.id, "position": x.position}
         #command = json.dumps(msg.data)
         global queue
         #queue.append(m)
