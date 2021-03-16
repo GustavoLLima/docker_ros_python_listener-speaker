@@ -29,12 +29,9 @@ def main(args=None):
         my_id = int(''.join(filter(lambda i: i.isdigit(), test_string)))
         # print (str(my_id))
 
-        #position = random.randint(0,100)
-        sugar = random.randint(5,25)
-        metabolism = random.randint(1,4)
-        vision = random.randint(1,6)
+        position = random.randint(0,100)
 
-        m = {"id": my_id, "sugar": sugar, "metabolism": metabolism, "vision": vision} # a real dict.
+        m = {"id": my_id, "position": position} # a real dict.
         command = json.dumps(m)
 
         msg = String()
