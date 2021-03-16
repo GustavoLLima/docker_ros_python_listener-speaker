@@ -44,7 +44,8 @@ def main(args=None):
         node.get_logger().info('Publishing: "%s"' % msg.data)
         publisher.publish(msg)
         i += 1
-    sleep(0.5)  # seconds
+    #sleep(0.5)  # seconds
+    break
 
   # Destroy the node explicitly
   # (optional - otherwise it will be done automatically
