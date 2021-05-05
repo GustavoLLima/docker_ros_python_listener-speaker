@@ -20,6 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'v9_mts = codigo_gustavo.v9_mts:main',
+            'v9_initial_talker = codigo_gustavo.v9_initial_talker:main',
+            'v9_multiple_talker = codigo_gustavo.v9_multiple_talker:main',
+            'v9_final_listener = codigo_gustavo.v9_final_listener:main',            
             'initial_talker = codigo_gustavo.initial_talker:main',
             'mts = codigo_gustavo.mts:main',
             'multiple_talker = codigo_gustavo.multiple_talker:main',
