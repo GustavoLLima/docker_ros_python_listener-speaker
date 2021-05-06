@@ -61,7 +61,7 @@ class MinimalSubscriber(Node):
             print("Enviando para o modelo:"+command)
             
             # print(socket.gethostname())
-            sock.connect(("0.0.0.0", 9999))
+            sock.connect((modelo, 9999))
             sock.sendall(command.encode())
             # while len(queue) > 0:
             #     elemento = queue.pop(0)
