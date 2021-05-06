@@ -27,7 +27,7 @@ class MinimalPublisher(Node):
 
 
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.bind((my_name, 9999))
+        s.bind(("0.0.0.0", 9999))
         s.listen(2)
 
         while True:
