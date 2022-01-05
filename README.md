@@ -1,4 +1,3 @@
-# codigo_gustavo
 ## Descrição
 Teste para criar um pacote ros2 com listener/speaker em Python.
 
