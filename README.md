@@ -17,7 +17,7 @@ version: '3'
 services:
   talker:
     build: ./
-    command: ros2 run codigo_gustavo talker
+    command: ros2 run codigo_gustavo original_talker
 
   listener:
     build: ./
@@ -25,7 +25,7 @@ services:
       - "PYTHONUNBUFFERED=1"
     volumes:
       - ./teste:/teste
-    command: ros2 run codigo_gustavo listener
+    command: ros2 run codigo_gustavo original_listener
     deploy:
       mode: replicated
       replicas: 2
@@ -137,6 +137,9 @@ Ou então, crie um novo terminal, execute novamente os passos do setup e, por fi
 ```
 ros2 run codigo_gustavo listener
 ```
+
+## Extra
+Existem mais arquivos/comandos testando o uso de sockets em Python para comunicar com containers no Docker que adicionariam novas integrações ao ROS. A ideia seria acoplhar Sistemas Multiagente, onde os agentes iriam interagir com o ROS. A proposta foi descontinuada, mas os arquivos ainda servem como base para isso.
 
 ## Referências
 Código utilizado como base para a criação do listener/speaker em Python, em conjunto com a criação do pacote no ros2: https://docs.ros.org/en/ros2_documentation/foxy/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber.html
