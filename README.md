@@ -1,5 +1,5 @@
 ## Descrição
-Teste para criar um pacote ros2 com listener/speaker em Python.
+Teste para criar um pacote ros2 com listener/speaker em Python, com a opção de usar através de containers do Docker.
 
 Os testes foram feitos utilizando o ros2 na distribuição `foxy`.
 
