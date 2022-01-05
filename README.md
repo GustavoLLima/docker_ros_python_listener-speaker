@@ -70,8 +70,9 @@ FROM $FROM_IMAGE AS builder
 ARG OVERLAY_WS
 WORKDIR $OVERLAY_WS
 COPY --from=cacher /tmp/$OVERLAY_WS/src ./src
+# 05/01/22 - REMOVIDO APT-GET UPDATE DA VERSÃO ORIGINAL DO DOCKERFILE, POIS ESTÁ OCORRENDO NAS KEYS GERADAS NO DOCKER
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
-    apt-get update && rosdep install -y \
+    rosdep install -y \
       --from-paths \
         src \
       --rosdistro \
